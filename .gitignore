@@ -1,0 +1,26 @@
+# Build outputs
+bin/
+obj/
+wwwroot/js/*.js
+wwwroot/js/*.js.map
+
+# Node modules
+node_modules/
+
+# IDE files
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Logs
+logs/
+*.log
+
+# Runtime files
+*.tmp
+*.temp
+
+# OS files
+.DS_Store
+Thumbs.db
