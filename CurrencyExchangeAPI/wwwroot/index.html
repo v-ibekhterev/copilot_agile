@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Exchange Rates</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>💱 Currency Exchange Rates</h1>
+            <p class="subtitle">Real-time exchange rates updated every 3 minutes</p>
+        </header>
+
+        <main class="main-content">
+            <div class="controls">
+                <button id="refreshBtn" class="refresh-btn">🔄 Refresh Now</button>
+                <div class="last-updated">
+                    <span>Last updated: </span>
+                    <span id="lastUpdated" class="timestamp">Loading...</span>
+                </div>
+            </div>
+
+            <div class="loading" id="loading">
+                <div class="loader"></div>
+                <p>Loading exchange rates...</p>
+            </div>
+
+            <div class="rates-container" id="ratesContainer">
+                <div class="rates-grid" id="ratesGrid">
+                    <!-- Currency rates will be populated here -->
+                </div>
+            </div>
+
+            <div class="error-message" id="errorMessage" style="display: none;">
+                <p>Unable to load exchange rates. Please try again later.</p>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 Currency Exchange Monitor | Data updates every 3 minutes</p>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
