@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services
 builder.Services.AddHttpClient<ICurrencyService, CurrencyService>();
 builder.Services.AddSingleton<ICurrencyService, CurrencyService>();
+builder.Services.AddSingleton<ITaskService, TaskService>();
 builder.Services.AddHostedService<CurrencyUpdateBackgroundService>();
 
 // Add CORS for development
@@ -37,6 +38,18 @@ app.MapPost("/api/update-rates", async (ICurrencyService currencyService) =>
 {
     await currencyService.UpdateRatesAsync();
     return Results.Ok(new { message = "Rates updated successfully" });
+});
+
+app.MapGet("/api/tasks", (ITaskService taskService) =>
+{
+    var tasks = taskService.GetAllTasks();
+    return Results.Ok(tasks);
+});
+
+app.MapGet("/api/tasks/{id}", (int id, ITaskService taskService) =>
+{
+    var task = taskService.GetTaskById(id);
+    return task != null ? Results.Ok(task) : Results.NotFound();
 });
 
 app.Run();
